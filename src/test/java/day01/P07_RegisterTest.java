@@ -42,7 +42,7 @@ public class P07_RegisterTest {
 
     @AfterEach
     public void tearDown(){
-        driver.quit();
+      driver.quit();
     }
 
     @Test
@@ -63,9 +63,10 @@ public class P07_RegisterTest {
         driver.findElement(By.id("zipcode")).sendKeys(faker.address().zipCode());
         driver.findElement(By.id("mobile_number")).sendKeys(faker.phoneNumber().phoneNumber());
         driver.findElement(By.xpath("//*[@data-qa='create-account']")).click();
+        System.out.println(driver.findElement(By.xpath("//*[@data-qa='account-created']")).getText());
         driver.findElement(By.xpath("//*[@data-qa='continue-button']")).click();
         driver.findElement(By.xpath("//a[@href='/delete_account']")).click();
-        //System.out.println(driver.findElement(By.xpath("//a[@href='account-deleted']")).getText());
+       System.out.println(driver.findElement(By.xpath("//*[@data-qa='account-deleted']")).getText());
 
     }
 }
